@@ -22,6 +22,7 @@ const signup = async (req, res, next) => {
     );
   }
   const { name, email, password } = req.body;
+
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
@@ -45,7 +46,7 @@ const signup = async (req, res, next) => {
     name,
     email,
     password,
-    image: "https://img.icons8.com/bubbles/2x/user.png",
+    image: req.file.path,
     places: [],
   });
 
@@ -85,7 +86,12 @@ const login = async (req, res, next) => {
     );
   }
 
-  res.status(200).json({ message: "Logged in!" });
+  res
+    .status(200)
+    .json({
+      message: "Logged in!",
+      user: existingUser.toObject({ getters: true }),
+    });
 };
 
 exports.getUsers = getUsers;
