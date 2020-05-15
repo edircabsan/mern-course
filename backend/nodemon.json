@@ -1,0 +1,10 @@
+{
+  "env":{
+    "DB_USER": "app-user",
+    "DB_PASSWORD": "Pa55w0rd",
+    "DB_SERVER": "cluster0-qhd8s.mongodb.net",
+    "DB_NAME": "mern",
+    "GOOGLE_API_KEY": "AIzaSyBuXJ3VyzVy2KAHgd-dejNjEox8V6G0uAo",
+    "JWT_KEY": "supersecret_dont_share"
+  }
+}

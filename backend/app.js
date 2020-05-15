@@ -45,7 +45,7 @@ app.use((error, req, res, next) => {
 });
 
 const url =
-  "mongodb+srv://user:password@cluster.mongodb.net/mern?retryWrites=true&w=majority";
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_SERVER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose
   .connect(url)
   .then(() => {

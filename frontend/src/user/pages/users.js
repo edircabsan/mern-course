@@ -14,7 +14,7 @@ const Users = () => {
       //do not use async function as an useEffect argument (class 149)
 
       try {
-        const responseData = await sendRequest("http://localhost:5000/api/users");
+        const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + "/users");
         setLoadedUsers(responseData.users);
       } catch (err) {
         //Nothing to do
