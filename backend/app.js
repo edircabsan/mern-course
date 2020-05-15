@@ -45,12 +45,12 @@ app.use((error, req, res, next) => {
 });
 
 const url =
-  "mongodb+srv://[USER]:[PASSWORD]@[SERVER]/mern?retryWrites=true&w=majority";
+  "mongodb+srv://user:password@cluster.mongodb.net/mern?retryWrites=true&w=majority";
 mongoose
   .connect(url)
   .then(() => {
     app.listen(5000);
   })
   .catch((err) => {
-    console.log(err);
+    console.log("Error Logging: ", err);
   });

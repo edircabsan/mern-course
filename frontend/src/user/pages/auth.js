@@ -53,7 +53,7 @@ const Auth = () => {
           }
         );
 
-        auth.login(responseData.user.id);
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {
         //NOTHING TO DO
       }
@@ -64,12 +64,12 @@ const Auth = () => {
         formData.append('name', formState.inputs.name.value)
         formData.append('password', formState.inputs.password.value)
         formData.append('image', formState.inputs.image.value);
-        await sendRequest(
+        const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
           formData
         );
-        auth.login();
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {
         //Nothing to do
       }
