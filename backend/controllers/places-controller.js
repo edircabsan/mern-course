@@ -141,9 +141,10 @@ const deletePlace = async (req, res, next) => {
     );
   }
 
-  if(place.creator.toString() !== req.userData.userId){
+  if(place.creator.id.toString() !== req.userData.userId){
+    console.log(place.creator.toString(), req.userData.userId);
     return next (
-      new HttpError("You are not allowed to delete this place", 401)
+      new HttpError("You are not allowed to delete this place, because you didn't create it.", 401)
     );
   }  
 

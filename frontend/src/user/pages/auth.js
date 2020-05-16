@@ -107,7 +107,7 @@ const Auth = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className="center">
       <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
@@ -153,7 +153,7 @@ const Auth = () => {
           </Button>
         </form>
       </Card>
-    </React.Fragment>
+    </div>
   );
 };
 
